@@ -1,12 +1,16 @@
-from scipy.stats import chi2_contingency
 import numpy as np
+from scipy.stats import chi2_contingency
 
-tabela_observada = np.array([[41, 34], [18, 7]])
+# Criação de matriz com dados para teste
+novela = np.array([[19, 6], [43, 32]])
+novela
 
-estatistica_qui2, p_valor, graus_liberdade, frequencias_esperadas = chi2_contingency(tabela_observada)
+# Segundo valor é p-value
+# Se p-value > 0.05 então não temos evidências para recusar a hipótese nula (h0)
+chi2_contingency(novela)
 
-print(f"Estatística Qui-Quadrado: {estatistica_qui2:.4f}")
-print(f"Valor-p (p-value): {p_valor:.4f}")
-print(f"Graus de liberdade: {graus_liberdade}")
-print("Frequências esperadas:")
-print(frequencias_esperadas)
+novela2 = np.array([[22, 3], [43, 32]])
+novela2
+
+# Se p-value < 0.05 então temos evidências para recusar a hipótese nula (h0)
+chi2_contingency(novela2)
